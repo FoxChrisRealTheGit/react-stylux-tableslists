@@ -37,8 +37,45 @@ var Table2 = function (_Component) {
             tableId: props.tableId,
             mainId: props.mainId,
             mainClassName: props.mainClassName,
-            tableClassName: props.tableClassName
-
+            tableClassName: props.tableClassName,
+            smdis: props.smDis || 'flex',
+            mddis: props.mdDis || 'flex',
+            animationIterationCount: props.aniCount,
+            animationTimingFunction: props.aniTime,
+            animationName: props.aniName,
+            animationDuration: props.aniDur,
+            transformOrigin: props.transformOrigin,
+            animationFillMode: props.aniFillMode,
+            // headBorderTop: props.hbordertop,
+            // headBorderRight: props.hborderRight,
+            // headBorderBottom: props.hborderBottom,
+            // headBorderLeft: props.hborderLeft,
+            // headBorder: props.hborder || '1px solid black',
+            // headVertical: props.hvertical || 'center',
+            // headWidth: props.headWidth,
+            // headHeight: props.headHeight,
+            // headMargin: props.headMargin,
+            // headPadding: props.headPadding || '5px',
+            dBorderTop: props.dbordertop,
+            dBorderRight: props.dborderRight,
+            dBorderBottom: props.dborderBottom,
+            dBorderLeft: props.dborderLeft,
+            dBorder: props.dborder || '1px solid black',
+            headVertical: props.headVertical || 'center',
+            dwidth: props.dwidth,
+            dheight: props.dheight,
+            dmargin: props.dmargin,
+            dpadding: props.dpadding || '5px',
+            tableBorderTop: props.tbordertop,
+            tableBorderRight: props.tborderRight,
+            tableBorderBottom: props.tborderBottom,
+            tableBorderLeft: props.tborderLeft,
+            tableBorder: props.tborder || '1px solid black',
+            tableMargin: props.tmargin,
+            tablePadding: props.tpadding,
+            tableWidth: props.tableWidth,
+            tableHeight: props.tableHeight,
+            tableBorderCollapse: props.borderCollaspe || 'collapse'
         };
         return _this;
     }
@@ -51,7 +88,34 @@ var Table2 = function (_Component) {
             var HEAD = void 0,
                 BODY = void 0;
             var BODYROW = [];
-            var CHILDS = _react2.default.Children.count(this.props.children) === 0 ? '' : _react2.default.Children.toArray(this.props.children.split('\\'));
+            // const TABLEHEAD={
+            //     borderTop: this.state.headBorderTop,
+            //     borderRight: this.state.headBorderRight,
+            //     borderBottom: this.state.headBorderBottom,
+            //     borderLeft: this.state.headBorderLeft,
+            //     border: this.state.headBorder,
+            //     margin: this.state.headMargin,
+            //     padding: this.state.headPadding,
+            //     textAlign: 'center',
+            //     width: this.state.headWidth,
+            //     height: this.state.headHeight,
+
+            // }
+
+            var TABLEBODY = {
+                borderTop: this.state.dBorderTop,
+                borderRight: this.state.dBorderRight,
+                borderBottom: this.state.dBorderBottom,
+                borderLeft: this.state.dBorderLeft,
+                border: this.state.dBorder,
+                margin: this.state.dMargin,
+                padding: this.state.dPadding,
+                textAlign: 'center',
+                width: this.state.dWidth,
+                height: this.state.dHeight
+
+            };
+            var CHILDS = _react2.default.Children.count(this.props.children) === 0 ? '' : _react2.default.Children.toArray(this.props.children);
             if (CHILDS !== '') {
                 tempBody = CHILDS.map(function (x, i, arr) {
                     return x;
@@ -62,7 +126,7 @@ var Table2 = function (_Component) {
                     BODY = temperBody.map(function (x, i, arr) {
                         return _react2.default.createElement(
                             'td',
-                            { key: i },
+                            { key: i, style: TABLEBODY },
                             x
                         );
                     });
@@ -85,7 +149,34 @@ var Table2 = function (_Component) {
             var HEAD = void 0,
                 BODY = void 0;
             var BODYROW = [];
-            var CHILDS = _react2.default.Children.count(newProps.children) === 0 ? '' : _react2.default.Children.toArray(newProps.children.split('\\'));
+            // const TABLEHEAD={
+            //     borderTop: this.state.headBorderTop,
+            //     borderRight: this.state.headBorderRight,
+            //     borderBottom: this.state.headBorderBottom,
+            //     borderLeft: this.state.headBorderLeft,
+            //     border: this.state.headBorder,
+            //     margin: this.state.headMargin,
+            //     padding: this.state.headPadding,
+            //     textAlign: 'center',
+            //     width: this.state.headWidth,
+            //     height: this.state.headHeight,
+
+            // }
+
+            var TABLEBODY = {
+                borderTop: this.state.dBorderTop,
+                borderRight: this.state.dBorderRight,
+                borderBottom: this.state.dBorderBottom,
+                borderLeft: this.state.dBorderLeft,
+                border: this.state.dBorder,
+                margin: this.state.dMargin,
+                padding: this.state.dPadding,
+                textAlign: 'center',
+                width: this.state.dWidth,
+                height: this.state.dHeight
+
+            };
+            var CHILDS = _react2.default.Children.count(newProps.children) === 0 ? '' : _react2.default.Children.toArray(newProps.children);
             if (CHILDS !== '') {
                 tempBody = CHILDS.map(function (x, i, arr) {
                     return x;
@@ -96,7 +187,7 @@ var Table2 = function (_Component) {
                     BODY = temperBody.map(function (x, i, arr) {
                         return _react2.default.createElement(
                             'td',
-                            { key: i },
+                            { key: i, style: TABLEBODY },
                             x
                         );
                     });
@@ -114,10 +205,27 @@ var Table2 = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-            var TABLESTYLE = {};
+            var TABLESTYLE = {
+                borderTop: this.state.tableBorderTop,
+                borderRight: this.state.tableBorderRight,
+                borderBottom: this.state.tableBorderBottom,
+                borderLeft: this.state.tableBorderLeft,
+                border: this.state.tableBorder,
+                margin: this.state.tableMargin,
+                padding: this.state.tablePadding,
+                textAlign: 'center',
+                width: this.state.tableWidth,
+                height: this.state.tableHeight,
+                borderCollapse: this.state.tableBorderCollapse,
+                cursor: 'default'
+            };
+
+            var TABLERES = {
+                overflowX: 'auto'
+            };
             return _react2.default.createElement(
                 'div',
-                { id: this.state.mainId, className: this.state.mainClassName },
+                { style: TABLERES, id: this.state.mainId, className: this.state.mainClassName },
                 _react2.default.createElement(
                     'table',
                     { style: TABLESTYLE, id: this.state.tableId, className: ' ' + this.state.tableClassName },

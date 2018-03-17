@@ -1,6 +1,6 @@
 {
   "name": "react-stylux-tableslists",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "The tables and list mechanic of react-stylux",
   "main": "index.js",
   "scripts": {
